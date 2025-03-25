@@ -40,6 +40,8 @@
       img {
         opacity: 1;
         transform: rotate(90deg);
+        filter: invert(16%) sepia(99%) saturate(6054%) hue-rotate(358deg)
+          brightness(93%) contrast(118%);
       }
     }
   }
