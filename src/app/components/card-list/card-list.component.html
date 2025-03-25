@@ -9,12 +9,26 @@
     />
   </div>
 
-  <div class="card-grid">
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && filteredCards.length === 0" class="empty-state">
+    <img src="assets/empty.png" alt="Nada encontrado" />
+    <h3>Nenhum registro encontrado</h3>
+    <p *ngIf="searchTerm">
+      Sua busca por <i>"{{ searchTerm }}"</i> não retornou resultados.
+    </p>
+    <p *ngIf="!searchTerm">Nenhum resultado disponível no momento.</p>
+  </div>
+
+  <div *ngIf="!isLoading && filteredCards.length > 0" class="card-grid">
     <app-card
       *ngFor="let card of filteredCards"
       [card]="card"
       (delete)="onDeleteCard($event)"
-    >
-    </app-card>
+    ></app-card>
   </div>
 </div>

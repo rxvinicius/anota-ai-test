@@ -18,6 +18,7 @@ export class CardListComponent implements OnInit {
   cards: Card[] = [];
   filteredCards: Card[] = [];
   searchTerm: string = '';
+  isLoading: boolean = true;
 
   private searchSubject = new Subject<string>();
 
@@ -35,9 +36,16 @@ export class CardListComponent implements OnInit {
   }
 
   loadCards(): void {
-    this.cardService.getCards().subscribe((cards) => {
-      this.cards = cards;
-      this.filteredCards = [...this.cards];
+    this.isLoading = true;
+    this.cardService.getCards().subscribe({
+      next: (cards) => {
+        this.cards = cards;
+        this.filteredCards = [...this.cards];
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+      },
     });
   }
 
