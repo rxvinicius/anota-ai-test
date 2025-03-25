@@ -1,0 +1,20 @@
+<div class="card-list-container">
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Pesquisar..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearchInput($event)"
+    />
+  </div>
+
+  <div class="card-grid">
+    <app-card
+      *ngFor="let card of filteredCards"
+      [card]="card"
+      (delete)="onDeleteCard($event)"
+    >
+    </app-card>
+  </div>
+</div>

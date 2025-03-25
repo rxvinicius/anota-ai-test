@@ -1,0 +1,15 @@
+<div class="card">
+  <button class="delete-btn" (click)="onDelete()">
+    <img src="assets/close.svg" alt="Delete" />
+  </button>
+
+  <div class="image-container">
+    <img [src]="card.img" class="card-img" />
+    <span class="type-badge" [ngClass]="getTypeClass()">
+      {{ getTypeName() }}
+    </span>
+  </div>
+
+  <h2>{{ card.title }}</h2>
+  <p>{{ card.description }}</p>
+</div>
