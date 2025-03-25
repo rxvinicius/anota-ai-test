@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CardService } from '../../services/card.service';
 import { Card } from '../../models/card.model';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../header/header.component';
 import { CardComponent } from '../card/card.component';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
@@ -10,7 +9,7 @@ import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 @Component({
   selector: 'app-card-list',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, CardComponent, FormsModule],
+  imports: [CommonModule, CardComponent, FormsModule],
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.scss'],
 })
