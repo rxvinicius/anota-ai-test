@@ -50,6 +50,7 @@ export class CardListComponent implements OnInit {
   }
 
   onSearchInput(event: any): void {
+    this.isLoading = true;
     this.searchSubject.next(event.target.value);
   }
 
@@ -64,6 +65,7 @@ export class CardListComponent implements OnInit {
           card.description.toLowerCase().includes(term)
       );
     }
+    this.isLoading = false;
   }
 
   onDeleteCard(id: number): void {
